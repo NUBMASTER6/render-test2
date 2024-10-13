@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "input": "^1.0.1",
+    "ngrok": "^5.0.0-beta.2",
+    "node-fetch": "^3.0.0",
+    "string": "^3.3.3",
+    "telegram": "^2.25.15",
+    "util": "^0.12.5"
+  }
+}
