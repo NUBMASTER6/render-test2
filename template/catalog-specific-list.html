@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Регистрация / Авторизация{% endblock %}
+
+{% block title_class %}custom-title-class{% endblock %}
+    {% block link %}
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="{% static 'css/catalog/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/card/style.css' %}">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=check" />
+    <style>
+        * {
+            font-family: "SF Pro", Helvetica !important;
+        }
+
+        </style>
+
+    {% endblock %}
+
+{% block body_id %}test{% endblock %}
+
+{% block header %} Все категории {% endblock %}
+{% block right_button %} <button class="button-back">􀊫</button> {% endblock %}
+
+{% block content %}
+
+<div class="cards-container two-cards-per-row">
+
+{% for item in items %}
+<div class="cards card-list to_click">
+    <div class="image card-list">
+        <div class="text-wrapper card-list"></div>
+    </div>
+    <div class="frame card-list">
+        <div class="div card-list">
+            <div class="view card-list">
+                <div class="text-wrapper-2 card-list">{{ item.title }}</div>
+                <div class="text-wrapper-3 card-list">{{ item.price }}₽</div>
+            </div>
+                <div class="like-button" onclick="toggleLike(this)">
+                  <span>􀊵️</span>
+                </div>
+        </div>
+        <div class="navbar card-list">
+            <div class="text card-list">{{ item.gender }}</div>
+            <div class="rectangle card-list"></div>
+            <div class="text card-list">{{ item.breed }}</div>
+            <div class="rectangle card-list"></div>
+            <div class="text card-list">{{ item.age }}</div>
+            <div class="rectangle card-list"></div>
+            <div class="text card-list">{{ item.birthday|date:"d.m.Y" }} (Телец)</div>
+            <div class="rectangle card-list"></div>
+            <div class="text card-list">{{ item.color }}</div>
+            <div class="rectangle card-list"></div>
+            <div class="text-2 card-list">{{ item.eyes }}</div>
+        </div>
+        <div class="frame-2 card-list">
+            <div class="text-wrapper-5 card-list">{{ item.location }}</div>
+            <div class="text-wrapper-6 card-list">{{ item.date_added|date:"d F, H:i" }}</div>
+        </div>
+        <div class="div card-list">
+            <div class="frame-3 card-list">
+                <div class="text-wrapper-7 card-list">􀋮</div>
+                <div class="text-wrapper-7 card-list">{{ item.likes }}</div>
+            </div>
+            <div class="frame-3 card-list">
+                <div class="text-wrapper-7 card-list">􀌥</div>
+                <div class="text-wrapper-7 card-list">{{ item.comments }}</div>
+            </div>
+            <div class="frame-3 card-list">
+                <div class="text-wrapper-7 card-list">􀊵</div>
+                <div class="text-wrapper-7 card-list">{{ item.shares }}</div>
+            </div>
+        </div>
+    </div>
+</div>{% endfor %}
+
+<!-- HTML structure -->
+{% endblock %}
+
+</div >
+
+
+{% block script %}
+
+{% block body %}<div class="frame-mini-bar">
+      <div class="div-wrapper-mini-bar">
+        <div class="text-wrapper-mini-bar" id="first-button">􀏭</div>
+      </div>
+      <div class="div-mini-bar" id="test-button">
+        <div class="text-wrapper-mini-bar">􀛧</div>
+      </div>
+      <div class="div-wrapper-mini-bar">
+        <div class="text-wrapper-mini-bar" id="test-button-2">􀓛</div>
+      </div>
+    </div>{% endblock %}
+
+{% endblock %}
+{% block extra_script %}
+<script>
+function toggleLike(button) {
+  button.classList.toggle('liked');
+}
+document.addEventListener("DOMContentLoaded", function () {
+  const buttons = document.querySelectorAll(".div-mini-bar, .div-wrapper-mini-bar");
+
+  // Function to handle the visual button selection
+  function handleButtonClick(button) {
+    buttons.forEach((btn) => btn.classList.remove("selected")); // Remove selected state from all buttons
+    button.classList.add("selected"); // Add selected state to the clicked button
+  }
+
+  // Event listener for the first button (test-button)
+  document.getElementById('test-button').addEventListener('click', function () {
+    let content = document.querySelector('.cards-container');
+    content.classList.remove('horizontal-layout');
+    content.classList.add('two-cards-per-row'); // Switch to grid layout
+    handleButtonClick(this.parentElement); // Handle selection animation
+  });
+
+  // Event listener for the reset button (first-button)
+  document.getElementById('first-button').addEventListener('click', function () {
+    let content = document.querySelector('.cards-container');
+    content.classList.remove('two-cards-per-row');
+    content.classList.remove('horizontal-layout'); // Reset to default layout
+    handleButtonClick(this.parentElement); // Handle selection animation
+  });
+
+  // Event listener for the second button (test-button-2)
+  document.getElementById('test-button-2').addEventListener('click', function () {
+    let content = document.querySelector('.cards-container');
+    content.classList.add('horizontal-layout'); // Switch to horizontal layout
+    content.classList.remove('two-cards-per-row');
+    handleButtonClick(this.parentElement); // Handle selection animation
+  });
+
+  // Set default selection (middle button is selected by default)
+  document.getElementById('test-button').parentElement.classList.add("selected");
+});
+document.querySelectorAll('.to_click').forEach(element => {
+    element.addEventListener('click', function(event) {
+        // Check if the click was on or close to the like button (with id likeButton)
+        if (event.target.closest('.like-button')) {
+            return
+        } else {
+            // If not clicked on or close to the like button, apply the shrink effect
+            element.classList.add('clicked');
+
+            // Remove the shrink effect after 200ms
+            setTimeout(() => element.classList.remove('clicked'), 200);
+        }
+    });
+document.querySelector('.button-back').addEventListener('click', function() {
+    window.history.back();
+});
+
+
+
+});
+
+</script>
+{% endblock %}
+
+
+

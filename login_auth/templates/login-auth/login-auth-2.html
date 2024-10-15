@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Регистрация / Авторизация{% endblock %}
+
+{% block title_class %}custom-title-class{% endblock %}
+    {% block link %}
+    <link rel="stylesheet" href="{% static 'css/login-auth/styles.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=check" />
+
+    <link rel="stylesheet" href="{% static 'css/login-auth/globals.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login-auth/styleguide.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login-auth/login-auth-2.css' %}">
+    {% endblock %}
+
+{% block header %}Регистрация / Авторизация{% endblock %}
+
+
+{% block right_button %}
+
+{% endblock %}
+{% block content %}
+    <div class="container ">
+    <div class="frame-513138 frame">
+        <div class="frame-57 frame">
+          <div class="description sfpro-medium-black-20px">Введите код из СМС</div>
+          <p class="description-1 sfpro-regular-normal-black-14px">
+           Введите проверочный код из СМС, которое пришло на номер <span id="phone-display"></span>
+          </p>
+        </div>
+                <div class="frame">
+          <div class="frame-69" >
+            <input type="text" class="digit-input" placeholder="-" maxlength="1" inputmode="numeric" pattern="[0-9]*" />
+            <input type="text" class="digit-input" placeholder="-" maxlength="1" inputmode="numeric" pattern="[0-9]*" />
+            <input type="text" class="digit-input" placeholder="-" maxlength="1" inputmode="numeric" pattern="[0-9]*" />
+            <input type="text" class="digit-input" placeholder="-" maxlength="1" inputmode="numeric" pattern="[0-9]*" />
+          </div>
+            <div id="error-message"></div>
+                <div class="resend-button sfpro-regular-normal-black-12px" id="resend-button">
+                    Отправить еще раз
+                </div>
+            </div>
+      </div>
+
+    </div>
+
+    {% block footer %}
+        <footer class="footer mobileBar">
+            <button class="button submit-button sfpro-medium-white-14px" id="submit-button">Продолжить</button>
+
+        </footer>
+{% endblock %}
+
+
+{% endblock %}
+{% block script %} {% static 'js/login-auth/login-auth-2.js' %} {% endblock %}

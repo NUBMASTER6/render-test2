@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Регистрация аккаунта{% endblock %}
+
+{% block title_class %}custom-title-class{% endblock %}
+
+    {% block link %}
+    <link rel="stylesheet" href="{% static 'css/login-auth/styles.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=check" />
+
+    <link rel="stylesheet" href="{% static 'css/login-auth/globals.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login-auth/styleguide.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login-auth/login-auth-5.css' %}">
+    {% endblock %}
+
+
+{% block header %}Регистрация аккаунта{% endblock %}
+
+
+{% block right_button %}
+
+{% endblock %}
+
+{% block content_style %} style="align-content: center;" {% endblock %}  <!-- Apply inline style here -->
+{% block content %}
+
+<div class="frame-513044 frame" style="top:25%">
+        <div class="frame-512408 frame">
+      <div class="circle-container">
+        <div class="circle-background"></div>
+        <div class="circle-foreground">
+            <span class="checkmark material-symbols-outlined">check</span>
+        </div>
+    </div>
+          <div class="frame-512407 frame"><div class="x5000">Вы успешно зарегистрированы!</div></div>
+        </div>
+      </div>
+    {% block footer %}
+        <footer class="footer mobileBar">
+<button onclick="window.location.href = '/catalog/'" class="button sfpro-medium-white-14px" id="submit-button">Перейти в Паппи</button>
+        </footer>
+    </div>
+{% endblock %}
+
+
+{% endblock %}
+{% block extra_script %}
+{% endblock %}

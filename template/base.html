@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>{% block title %}Default Title{% endblock %}</title>
+    {% block link %}
+    {% endblock %}
+    <style>
+
+    </style>
+</head>
+
+<body id="{% block body_id %}app{% endblock %}">
+
+    <div class="container">
+        {# Will allow me disable this header if i dont need it later on. Example catalog template #}
+        {% block for_header %}
+        <header class="header">
+            <!-- Left Button -->
+            {% block left_button %}
+            <button class="button-back">
+                <img src="{% static 'img/back-icon.svg' %}">
+            </button>
+            {% endblock %}
+
+            <!-- Title (which should always be centered) -->
+            <div class="title-container">
+                <div class="text_label sfpro-medium-black-16px">
+                    {% block header %}Default Header{% endblock %}
+                </div>
+            </div>
+
+            <!-- Right Button -->
+            {% block right_button %}
+            <button class="button-back">⚙</button>
+            {% endblock %}
+        </header>
+        {% endblock %}
+
+        <main class="content" id="page-content">
+            {% block content %}
+            <h2>Default Content Area</h2>
+            <p>This is the default content.</p>
+            {% endblock %}
+        </main>
+
+    </div>
+    {% block body %}{% endblock %}
+     <script src="{% static 'js/login-auth/main.js' %}"></script>
+    <script src="{% block script %}{% endblock %}"></script>
+            {% block extra_script %}
+
+            {% endblock %}
+</body>
+
+</html>

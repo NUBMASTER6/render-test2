@@ -1,0 +1,612 @@
+<!-- This catalog estends base.html as header,content,footer defualt -->
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}Регистрация / Авторизация{% endblock %}
+
+{% block title_class %}custom-title-class{% endblock %}
+    {% block link %}
+    <link rel="stylesheet" href="{% static 'css/catalog/styles.css' %}">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=check" />
+        <style>
+        @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0px;
+  height: 100%;
+}
+/* a blue color as a generic focus style */
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+a {
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: "SF Pro-Semibold";
+  src: url("https://anima-uploads.s3.amazonaws.com/projects/64f035e70ffb37c7c0f32912/fonts/sf-pro.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "SF Pro-Medium";
+  src: url("https://anima-uploads.s3.amazonaws.com/5f0f0fe71911555ed50ab8f4/SF-Pro.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SF Pro-Regular";
+  src: url("https://anima-uploads.s3.amazonaws.com/5efe6eb8e9407760a5475b2d/SF-Pro.ttf") format("truetype");
+}
+
+
+* {
+    font-family: "SF Pro", Helvetica !important;
+}
+
+.unique-page-container {
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #80cbc4; /* Teal background */
+  position: relative;
+}
+
+/* Burger Menu Button */
+.unique-burger-menu-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #000;
+  z-index: 1001; /* Above the menu */
+}
+
+/* Main Overlay covers the full page */
+.unique-main-overlay {
+  width: 100%; /* Hidden initially */
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  overflow: hidden;
+  transition: 0.5s; /* Smooth slide in */
+  z-index: 1000; /* Covers the page content */
+  display: flex;
+}
+
+/* Close section for the X button */
+.unique-close-section {
+  width: 20%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+/* Circular X button */
+.unique-close-button {
+  font-size: 20px;
+    font-family: "SF Pro", Helvetica;
+  cursor: pointer;
+  background-color: #FFFFFF ;
+  padding: 10px;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  width: 44px;
+  height: 44px;
+}
+
+/* Intro Section */
+.unique-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  position: relative;
+  background-color: #eaeaea;
+}
+
+.unique-intro .unique-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 44px 12px 12px;
+  position: relative;
+  width: 100%;
+  flex: 0 0 auto;
+  background-color: #ffffff;
+  border-radius: 0px 0px 16px 16px;
+}
+
+.unique-intro .unique-placeholder {
+  font-family: "SF Pro Rounded-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000e6;
+  font-size: 40px;
+}
+
+.unique-intro .unique-text-description {
+  font-family: "SF Pro", Helvetica
+;
+  font-weight: 400;
+  color: #00000080;
+  font-size: 14px;
+}
+
+/* Profile Section */
+.unique-profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px 0px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #00000014;
+}
+
+.unique-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0px 12px;
+}
+
+.unique-profile .unique-frame-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-image: url(./img/frame-94.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.unique-profile .unique-frame-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.unique-profile .unique-text-name {
+  font-family: "SF Pro", Helvetica
+;
+  font-weight: 500;
+  color: #000000e6;
+  font-size: 14px;
+}
+
+.unique-profile .unique-text-role {
+  font-family: "SF Pro", Helvetica
+;
+  font-weight: 400;
+  color: #00000080;
+  font-size: 12px;
+}
+
+/* Buttons */
+.unique-close-button-container {
+  display: flex;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.unique-cross-icon {
+  display: flex;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.unique-icon-text {
+  font-family: "SF Pro", Helvetica
+;
+  font-weight: 500;
+  color: #00000080;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+}
+
+/* Separator */
+.unique-separator {
+  width: 100%;
+  height: 1px;
+  background-color: #00000014;
+  border-radius: 5px;
+}
+
+/* Menu Section */
+.unique-menu-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 12px;
+  width: 100%;
+}
+
+.unique-menu-item {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  gap: 8px;
+}
+
+.unique-icon-container {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.unique-icon {
+  font-family: "SF Pro", Helvetica
+;
+  color: #000000e6;
+  font-size: 14px;
+  text-align: center;
+}
+
+.unique-label-text {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.unique-label {
+  font-family: "SF Pro", Helvetica
+;
+  color: #000000e6;
+  font-size: 16px;
+  text-align: center;
+}
+
+.unique-right-side-container {
+  display: inline-flex;
+  height: 24px;
+  align-items: center;
+  gap: 4px;
+  background-color: #f5f5f5;
+  border-radius: 32px;
+  border: 1px solid #00000014;
+}
+
+.unique-indicator {
+  width: 6px;
+  height: 6px;
+  background-color: #000000b2;
+  border-radius: 28px;
+}
+
+.unique-frame-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.unique-count-number,
+.unique-count-label {
+  font-family: "SF Pro", Helvetica
+;
+  color: #000000b2;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.unique-title {
+  font-size: 12px;
+  color: #000000;
+}
+
+/* Search Section */
+.unique-search-section {
+  padding: 12px;
+  background-color: #ffffff;
+  border-radius: 16px;
+}
+
+.unique-search-bar {
+  display: flex;
+  align-items: center;
+  padding: 0px 12px;
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  border: 1px solid #00000014;
+}
+
+.unique-search-icon {
+  font-family: "SF Pro", Helvetica
+;
+  font-size: 14px;
+}
+
+.unique-search-text {
+  font-family: "SF Pro", Helvetica
+;
+  font-weight: 400;
+  color: #00000080;
+  font-size: 14px;
+}
+
+/* Category Section */
+.unique-category-section {
+  padding: 12px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow-y: scroll;
+}
+
+.unique-category-title {
+  font-family: "SF Pro", Helvetica
+;
+  color: #000000e6;
+  font-size: 14px;
+}
+
+/* Cart and Support */
+.unique-right-side-container-2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background-color: #f6f6f6;
+  border-radius: 32px;
+  border: 1px solid #00000014;
+}
+
+.unique-title-wrapper {
+  display: flex;
+  width: 16px;
+  height: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.unique-title-cart {
+  font-size: 12px;
+  color: #000000;
+}
+
+.unique-cart-label {
+  font-family: "SF Pro", Helvetica
+;
+  font-size: 12px;
+}
+
+
+.status-bar-navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0px 0px 12px;
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 0px 0px 16px 16px;
+
+    width: 100%;
+}
+
+.status-bar-navbar .frame {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.status-bar-navbar .navbar {
+  display: flex;
+  height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 8px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+}
+
+.status-bar-navbar .button-left-menu {
+    display: flex;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+}
+
+.status-bar-navbar .icon {
+  display: flex;
+  flex-direction: column;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.status-bar-navbar .text-wrapper {
+  font-family: "SF Pro", Helvetica
+;
+  color: #000000e6;
+  font-size: 18px;
+  letter-spacing: -0.5px;
+  line-height: normal;
+  position: relative;
+  width: fit-content;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.status-bar-navbar .div {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.status-bar-navbar .text-wrapper-2 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "SF Pro", Helvetica
+;
+  font-weight: 500;
+  color: #000000e6;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: -0.5px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.status-bar-navbar .text-wrapper-3 {
+  position: relative;
+  width: fit-content;
+  font-family: "SF Pro", Helvetica
+;
+  font-weight: 400;
+  color: #00000080;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: -0.5px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.status-bar-navbar .frame-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 0px 12px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.status-bar-navbar .frame-2 {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  gap: 8px;
+  padding: 0px 12px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  border: 1px solid;
+  border-color: #00000014;
+}
+
+.status-bar-navbar .text-wrapper-4 {
+  font-family: "SF Pro", Helvetica
+;
+  color: #000000;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: -0.07px;
+  line-height: 20px;
+  position: relative;
+  width: fit-content;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.status-bar-navbar .text {
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+  background-color: transparent;
+  font-family: "SF Pro", Helvetica
+;
+  font-weight: 400;
+  color: #00000080;
+  font-size: 14px;
+  letter-spacing: -0.07px;
+  line-height: 20px;
+  border: 0;
+  padding: 0;
+}
+
+        </style>
+
+    {% endblock %}
+
+{% block body_id %}test{% endblock %}
+
+{% block header %} Все категории {% endblock %}
+{% block right_button %} <button class="button-back">􀊫</button> {% endblock %}
+{% block content %}
+
+<div class="unique-catalogue-all-frame">
+  {% for category in categories %}
+    <div class="unique-catalogue-all-div">
+      <div class="unique-catalogue-all-text-wrapper">{{ category.name }}</div>
+      <div class="unique-catalogue-all-div-2">
+        {% for subcategory in category.subcategories %}
+          <div class="unique-catalogue-all-div-3 to_click" onclick="window.location.href = '{{ subcategory.url }}'">
+            <div class="unique-catalogue-all-div-wrapper">
+              <div class="unique-catalogue-all-text-wrapper-2">􀌟</div>
+            </div>
+            <div class="unique-catalogue-all-text-wrapper-3">{{ subcategory.name }}</div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}
+{% block extra_script %}<script>
+
+
+</script>
+
+
+
+<script>
+document.querySelectorAll('.to_click').forEach(element => {
+    element.addEventListener('click', function(event) {
+
+
+        // If not clicked on like button, apply the shrink effect to the parent
+        element.classList.add('clicked');
+
+        // Remove the shrink effect after 200ms
+        setTimeout(() => element.classList.remove('clicked'), 200);
+    });
+});
+
+document.querySelector('.button-back').addEventListener('click', function() {
+    window.history.back();
+});
+</script>
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Регистрация / Авторизация{% endblock %}
+
+{% block title_class %}custom-title-class{% endblock %}
+    {% block link %}
+    <link rel="stylesheet" href="{% static 'css/login-auth/styles.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=check" />
+
+    <link rel="stylesheet" href="{% static 'css/login-auth/globals.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login-auth/styleguide.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login-auth/login-auth-3.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login-auth/login-auth-4.css' %}">
+        <style>.content {
+            padding: 0px !important;
+        }</style>
+    {% endblock %}
+
+{% block header %}Регистрация / Авторизация{% endblock %}
+
+
+{% block right_button %}
+
+{% endblock %}
+{% block content %}
+    <div class="frame-513044">
+        <div class="horizontal-tabs">
+          <article class="tab-button-base">
+            <div class="lable"><div class="text sfpro-medium-black-12px-2">Шаг 1</div></div>
+            <div class="text-1 sfpro-medium-black-14px">Личная информация</div>
+          </article>
+          <article class="tab-button-base-1">
+            <div class="lable-1"><div class="text sfpro-medium-black-12px">Шаг 2</div></div>
+            <div class="text-1 sfpro-medium-black-14px-3">Контактная информация</div>
+          </article>
+        </div>
+        <div class="frame-513052">
+          <div class="frame-512902"></div>
+        </div>
+        <div class="text-23 sfpro-medium-black-20px">Личная информация</div>
+        <div class="frame-513139">
+            <div class="frame-513139-item">
+                <label for="first-name" class="text-2 sfpro-medium-black-14px">Имя</label>
+                <input type="text" id="first-name" class="text-field input-field" placeholder="Маргарита">
+            </div>
+            <div class="frame-513139-item">
+                <label for="last-name" class="text-2 sfpro-medium-black-14px">Фамилия</label>
+                <input type="text" id="last-name" class="text-field input-field" placeholder="Иванова">
+            </div>
+            <div class="frame-513139-item">
+                <label for="dob" class="text-2 sfpro-medium-black-14px">Дата рождения</label>
+                <div class="date-picker-container">
+                    <input type="date" style="color:transparent" id="dob" class="text-field input-field">
+                    <div class="edit-button-overlay">
+                        <span>Изменить</span>
+                        <span class="arrow">›</span>
+                    </div>
+                    <div class="user-dob" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); display: flex; align-items: center; font-family: 'SF Pro Regular', sans-serif; font-size: 14px; color: #black; cursor: pointer; pointer-events: none;">
+                        <span>30.08.1998</span>
+                    </div>
+                </div>
+            </div>
+        <div class="frame-513139-item">
+            <label class="text-2 sfpro-medium-black-14px">Пол</label>
+            <div class="frame-512705 gender-selection">
+                <button type="button" class="gender-btn" data-gender="male" onclick="selectGender('male')">Мужской</button>
+                <button type="button" class="gender-btn" data-gender="female" onclick="selectGender('female')">Женский</button>
+            </div>
+            <!-- Hidden input to store the gender value -->
+            <input type="hidden" name="gender" id="gender-input" value="male">
+        </div>
+        </div>
+
+        <div class="frame-512733">
+          <div class="text-26">􀇻</div>
+          <div class="frame-512735">
+            <div class="placeholder-1 placeholder-3 sfpro-medium-black-14px">Подтверждение данных</div>
+            <p class="placeholder-2 placeholder-3">
+              Вы получите значок «Документы проверены». Он поможет завоевать доверие других людей
+            </p>
+          </div>
+          <div class="sf-chevron-right-1"><div class="text-27">􀆊</div></div>
+        </div>
+      </div>
+
+    {% block footer %}
+        <footer class="footer mobileBar">
+            <button class="button submit-button sfpro-medium-white-14px" id="submit-button">Продолжить</button>
+
+        </footer>
+{% endblock %}
+
+
+{% endblock %}
+{% block script %} {% static 'js/login-auth/login-auth-3-4.js' %} {% endblock %}

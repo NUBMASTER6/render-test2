@@ -1,0 +1,511 @@
+
+.login-auth-3 {
+  align-items: flex-start;
+  background-color: var(--gray-nurse);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 100vh;
+  position: relative;
+}
+/* Remove blue outline */
+input:focus {
+  outline: none !important;
+  border-color: black !important; /* Replace 'your-desired-color' with the actual color you want */
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    width: 100%;
+    padding: 10px;
+    padding-right: 100px; /* Make room for the "Изменить" text */
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+    font-family: 'SF Pro Regular', sans-serif;
+    outline: none;
+    transition: border-color 0.3s ease;
+
+}
+
+
+.custom-inpt { // style class to adjust the Date Input control default padding value
+    padding: 10px !important;
+}
+
+ .left-side {
+
+  background-size: 100% 100%;
+  height: 21px;
+  left: 21px;
+  position: absolute;
+  top: 14px;
+  width: 54px;
+}
+
+ .icon {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 24px;
+  justify-content: center;
+  position: relative;
+  width: 24px;
+}
+
+ .text-22 {
+  letter-spacing: -0.50px;
+  line-height: normal;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+ .frame-513159 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 2px;
+  justify-content: center;
+  position: relative;
+}
+
+ .text_label-1 {
+  letter-spacing: -0.50px;
+  line-height: normal;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+ .frame-513044 {
+  align-items: flex-start;
+  background-color: var(--white);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 16px;
+  overflow: hidden;
+  position: relative;
+  width:100%;
+    margin-bottom: 100px;
+     padding: 1px
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    //display: none;
+    //-webkit-appearance: none;
+    width: 15px;
+    padding: 0px;
+    margin: 0px;
+    margin-top: 10px;
+}
+
+ .horizontal-tabs {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none; /* Скрыть скролл-бар в Firefox */
+}
+
+ .horizontal-tabs::-webkit-scrollbar {
+  display: none; /* Скрыть скролл-бар в Chrome, Safari */
+}
+
+ .tab-button-base {
+  align-items: center;
+  background-color: var(--cultured-pearl);
+  border: 1px solid;
+  border-color: var(--black-4);
+  border-radius: 28px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  height: 36px;
+  justify-content: center;
+  overflow: hidden;
+  padding: 8px 12px 8px 4px;
+  transition: all 0.3s ease; /* Adjust the properties and duration as needed */
+}
+
+ .lable {
+  align-items: center;
+  background-color: var(--white);
+  border-radius: 19px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  height: 28px;
+  justify-content: center;
+  margin-bottom: -4.00px;
+  margin-top: -4.00px;
+  padding: 0px 8px;
+  position: relative;
+}
+
+ .text {
+  letter-spacing: -0.24px;
+  line-height: normal;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+ .text-1 {
+  letter-spacing: -0.28px;
+  line-height: 19.6px;
+  margin-top: -1.00px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+ .tab-button-base-1 {
+  align-items: center;
+  border-radius: 32px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  height: 36px;
+  justify-content: center;
+
+  overflow: hidden;
+  padding: 8px 12px 8px 4px;
+  position: relative;
+}
+
+ .lable-1 {
+  align-items: center;
+  background-color: var(--white);
+  border-radius: 31px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  height: 28px;
+  justify-content: center;
+  margin-bottom: -4.00px;
+  margin-top: -4.00px;
+  padding: 0px 8px;
+  position: relative;
+}
+
+ .text-23 {
+  align-self: stretch;
+  letter-spacing: -0.50px;
+  line-height: normal;
+  position: relative;
+}
+
+ .frame-513139 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  width: 100%;
+}
+
+ .frame-513139-item {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  width: 100%;
+}
+
+ .text-2 {
+  align-self: stretch;
+  letter-spacing: -0.50px;
+  line-height: normal;
+  margin-top: -1.00px;
+  position: relative;
+}
+
+ .text-field {
+  align-items: center;
+  align-self: stretch;
+  background-color: var(--cultured-pearl);
+  border: 1px solid;
+  border-color: var(--black-4);
+  border-radius: 10px;
+  display: flex;
+  gap: 4px;
+  height: 46px;
+  margin-bottom: -1.00px;
+  margin-left: -1.00px;
+  margin-right: -1.00px;
+  overflow: hidden;
+  padding: 0px 12px;
+  position: relative;
+  width: 100%;
+    -webkit-appearance: none;
+    color: black;
+}
+
+ .titile {
+  flex: 1;
+  letter-spacing: -0.41px;
+  line-height: normal;
+  position: relative;
+}
+
+ .placeholder {
+  letter-spacing: -0.24px;
+  line-height: 16.8px;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: right;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+ .text-24 {
+  letter-spacing: -0.33px;
+  line-height: normal;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.button {
+  /* Existing styles */
+  align-items: center !important;
+  align-self: stretch !important;
+  background-color: var(--black) !important;
+  border-radius: 12px !important;
+  display: flex !important;
+  gap: 4px !important;
+  height: 44px !important;
+  justify-content: center !important;
+  opacity: 0.3 !important; /* Inactive state */
+  cursor: not-allowed !important; /* Disabled cursor */
+  padding: 0px 12px !important;
+  position: relative !important;
+  width: 100% !important;
+  transition: transform 0.2s ease !important;
+}
+
+ .text_label {
+  letter-spacing: -0.28px;
+  line-height: 16px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+ .button-1 {
+  display: inline-flex;
+  flex: 0 0 auto;
+  height: 36px;
+}
+
+ .text-26 {
+  color: #3aaa61;
+  font-family: var(--font-family-sf_pro-medium);
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.48px;
+  line-height: normal;
+  margin-top: -1.00px;
+  position: relative;
+  width: fit-content;
+}
+
+ .text-27 {
+  color: var(--black-3);
+  font-family: var(--font-family-sf_pro-medium);
+  font-size: var(--font-size-l);
+  font-weight: 500;
+  letter-spacing: -0.42px;
+  line-height: normal;
+  margin-top: -0.33px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+ .frame-513066 {
+  align-items: center;
+  background-color: var(--white);
+  border-radius: 16px 16px 0px 0px;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  padding: 12px 0px 20px;
+  position: fixed; /* Fixed to allow for movement based on scroll */
+  width: 100%;
+  bottom: 0%; /* Initially 40% above the bottom */
+  z-index: 1000;
+
+}
+
+ .frame-513067 {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0px 12px;
+  position: relative;
+  width: 100%;
+}
+
+ .button-2 {
+  align-self: stretch;
+  display: flex;
+  height: 44px;
+  width: 100%;
+}
+
+ .home-indicator {
+  height: 34px;
+  position: relative;
+  width: 375px;
+}
+input::-webkit-date-and-time-value {
+    color: transparent !important;
+}
+ .home-indicator-1 {
+  background-color: var(--black-2);
+  border-radius: 100px;
+  height: 5px;
+  left: 121px;
+  position: relative;
+  top: 21px;
+  width: 134px;
+}
+
+ .button-3 {
+  align-items: center;
+  background-color: var(--black);
+  border-radius: 12px;
+  gap: 4px;
+  justify-content: center;
+  padding: 0px 12px;
+  position: relative;
+}
+
+.input-field:active {
+    outline: 1px var(--black-2); /* Set black outline */
+    border-color: black;      /* Optional: Change the border color to match */
+}
+
+/* Ensure input field takes full width */
+.input-field {
+    width: 100%;
+    padding: 10px;
+    padding-right: 100px; /* Make room for the 'Изменить' text */
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+    font-family: 'SF Pro Regular', sans-serif;
+    color: var(--black-2);
+    outline: none;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+    text-align: left; /* Align date text to the left */
+    -webkit-appearance: none; /* Remove default date input appearance */
+}
+
+.user-dob {
+    color: black;
+}
+/* Date field styling */
+.date-picker-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Styling for the date display text */
+.date-display {
+    font-family: 'SF Pro Regular', sans-serif;
+    font-size: 14px;
+    color: black;
+}
+
+/* Styling for the "Изменить" button */
+.edit-button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'SF Pro Regular', sans-serif;
+    font-size: 14px;
+    color: #007bff;
+    cursor: pointer;
+}
+.edit-button-overlay {
+    position: absolute;
+    right: 10px; /* Place the text on the right inside the input */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    font-family: 'SF Pro Regular', sans-serif;
+    font-size: 14px;
+    color: black;
+    cursor: pointer;
+    pointer-events: none; /* Allow input field click events to pass through */
+}
+.edit-button-overlay:hover {
+    color: #0056b3;
+}
+.arrow {
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+    margin-left: 5px;
+}
+.input-field:focus {
+    border-color: #007bff;
+}
+
+.edit-button-overlay:hover {
+    color: #0056b3;
+}
+
+/* Container styling */
+.gender-selection {
+    display: flex;
+    gap: 10px; /* Add some space between the buttons */
+}
+
+/* Button styling */
+.gender-btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: white; /* White background for unselected buttons */
+    color: black; /* Black text for unselected buttons */
+    font-family: 'SF Pro Regular', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    outline: none;
+
+}
+
+/* Active button style */
+.gender-btn.active {
+    background-color: var(--black-2); /* Black background for selected button */
+    color: white; /* White text for selected button */
+    border-color: var(--black-2); /* Border color matches the selected background */
+}
+
+

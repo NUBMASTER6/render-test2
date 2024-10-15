@@ -1,0 +1,930 @@
+<!-- This catalog estends base.html as header,content,footer defualt -->
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}Регистрация / Авторизация{% endblock %}
+
+{% block title_class %}custom-title-class{% endblock %}
+    {% block link %}
+    <link rel="stylesheet" href="{% static 'css/catalog/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login-auth/globals.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login-auth/styleguide.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login-auth/login-auth-1.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=check" />
+    <style>
+        @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0px;
+  height: 100%;
+}
+/* a blue color as a generic focus style */
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+a {
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: "SF Pro-Semibold";
+  src: url("https://anima-uploads.s3.amazonaws.com/projects/64f035e70ffb37c7c0f32912/fonts/sf-pro.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "SF Pro-Medium";
+  src: url("https://anima-uploads.s3.amazonaws.com/5f0f0fe71911555ed50ab8f4/SF-Pro.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SF Pro-Regular";
+  src: url("https://anima-uploads.s3.amazonaws.com/5efe6eb8e9407760a5475b2d/SF-Pro.ttf") format("truetype");
+}
+
+
+
+
+.unique-page-container {
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #80cbc4; /* Teal background */
+  position: relative;
+}
+
+/* Burger Menu Button */
+.unique-burger-menu-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #000;
+  z-index: 1001; /* Above the menu */
+}
+
+/* Main Overlay covers the full page */
+.unique-main-overlay {
+  width: 100%; /* Hidden initially */
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  overflow: hidden;
+  transition: 0.5s; /* Smooth slide in */
+  z-index: 1000; /* Covers the page content */
+  display: flex;
+}
+
+/* Close section for the X button */
+.unique-close-section {
+  width: 20%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+/* Circular X button */
+.unique-close-button {
+  font-size: 20px;
+    font-family: "SF Pro", Helvetica;
+  cursor: pointer;
+  background-color: #FFFFFF ;
+  padding: 10px;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  width: 44px;
+  height: 44px;
+}
+
+/* Intro Section */
+.unique-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  position: relative;
+  background-color: #eaeaea;
+}
+
+.unique-intro .unique-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 44px 12px 12px;
+  position: relative;
+  width: 100%;
+  flex: 0 0 auto;
+  background-color: #ffffff;
+  border-radius: 0px 0px 16px 16px;
+}
+
+.unique-intro .unique-placeholder {
+  font-family: "SF Pro Rounded-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000e6;
+  font-size: 40px;
+}
+
+.unique-intro .unique-text-description {
+  font-family: "SF Pro", Helvetica
+;
+  font-weight: 400;
+  color: #00000080;
+  font-size: 14px;
+}
+
+/* Profile Section */
+.unique-profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px 0px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #00000014;
+}
+
+.unique-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0px 12px;
+}
+
+.unique-profile .unique-frame-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-image: url(./img/frame-94.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.unique-profile .unique-frame-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.unique-profile .unique-text-name {
+  font-family: "SF Pro", Helvetica
+;
+  font-weight: 500;
+  color: #000000e6;
+  font-size: 14px;
+}
+
+.unique-profile .unique-text-role {
+  font-family: "SF Pro", Helvetica
+;
+  font-weight: 400;
+  color: #00000080;
+  font-size: 12px;
+}
+
+/* Buttons */
+.unique-close-button-container {
+  display: flex;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.unique-cross-icon {
+  display: flex;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.unique-icon-text {
+  font-family: "SF Pro", Helvetica
+;
+  font-weight: 500;
+  color: #00000080;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+}
+
+/* Separator */
+.unique-separator {
+  width: 100%;
+  height: 1px;
+  background-color: #00000014;
+  border-radius: 5px;
+}
+
+/* Menu Section */
+.unique-menu-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 12px;
+  width: 100%;
+}
+
+.unique-menu-item {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  gap: 8px;
+}
+
+.unique-icon-container {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.unique-icon {
+  font-family: "SF Pro", Helvetica
+;
+  color: #000000e6;
+  font-size: 14px;
+  text-align: center;
+}
+
+.unique-label-text {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.unique-label {
+  font-family: "SF Pro", Helvetica
+;
+  color: #000000e6;
+  font-size: 16px;
+  text-align: center;
+}
+
+.unique-right-side-container {
+  display: inline-flex;
+  height: 24px;
+  align-items: center;
+  gap: 4px;
+  background-color: #f5f5f5;
+  border-radius: 32px;
+  border: 1px solid #00000014;
+}
+
+.unique-indicator {
+  width: 6px;
+  height: 6px;
+  background-color: #000000b2;
+  border-radius: 28px;
+}
+
+.unique-frame-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.unique-count-number,
+.unique-count-label {
+  font-family: "SF Pro", Helvetica
+;
+  color: #000000b2;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.unique-title {
+  font-size: 12px;
+  color: #000000;
+}
+
+/* Search Section */
+.unique-search-section {
+  padding: 12px;
+  background-color: #ffffff;
+  border-radius: 16px;
+}
+
+.unique-search-bar {
+  display: flex;
+  align-items: center;
+  padding: 0px 12px;
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  border: 1px solid #00000014;
+}
+
+.unique-search-icon {
+  font-family: "SF Pro", Helvetica
+;
+  font-size: 14px;
+}
+
+.unique-search-text {
+  font-family: "SF Pro", Helvetica
+;
+  font-weight: 400;
+  color: #00000080;
+  font-size: 14px;
+}
+
+/* Category Section */
+.unique-category-section {
+  padding: 12px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow-y: scroll;
+}
+
+.unique-category-title {
+  font-family: "SF Pro", Helvetica
+;
+  color: #000000e6;
+  font-size: 14px;
+}
+
+/* Cart and Support */
+.unique-right-side-container-2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background-color: #f6f6f6;
+  border-radius: 32px;
+  border: 1px solid #00000014;
+}
+
+.unique-title-wrapper {
+  display: flex;
+  width: 16px;
+  height: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.unique-title-cart {
+  font-size: 12px;
+  color: #000000;
+}
+
+.unique-cart-label {
+  font-family: "SF Pro", Helvetica
+;
+  font-size: 12px;
+}
+
+
+.status-bar-navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0px 0px 12px;
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 0px 0px 16px 16px;
+    width: 100%;
+}
+
+.status-bar-navbar .frame {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.status-bar-navbar .navbar {
+  display: flex;
+  height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 8px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+}
+
+.status-bar-navbar .button-left-menu {
+    display: flex;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+}
+
+.status-bar-navbar .icon {
+  display: flex;
+  flex-direction: column;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.status-bar-navbar .text-wrapper {
+  font-family: "SF Pro", Helvetica
+;
+  color: #000000e6;
+  font-size: 18px;
+  letter-spacing: -0.5px;
+  line-height: normal;
+  position: relative;
+  width: fit-content;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.status-bar-navbar .div {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.status-bar-navbar .text-wrapper-2 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "SF Pro", Helvetica
+;
+  font-weight: 500;
+  color: #000000e6;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: -0.5px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.status-bar-navbar .text-wrapper-3 {
+  position: relative;
+  width: fit-content;
+  font-family: "SF Pro", Helvetica
+;
+  font-weight: 400;
+  color: #00000080;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: -0.5px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.status-bar-navbar .frame-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 0px 12px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.status-bar-navbar .frame-2 {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  gap: 8px;
+  padding: 0px 12px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  border: 1px solid;
+  border-color: #00000014;
+}
+
+.status-bar-navbar .text-wrapper-4 {
+  font-family: "SF Pro", Helvetica
+;
+  color: #000000;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: -0.07px;
+  line-height: 20px;
+  position: relative;
+  width: fit-content;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.status-bar-navbar .text {
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+  background-color: transparent;
+  font-family: "SF Pro", Helvetica
+;
+  font-weight: 400;
+  color: #00000080;
+  font-size: 14px;
+  letter-spacing: -0.07px;
+  line-height: 20px;
+  border: 0;
+  padding: 0;
+}
+
+        </style>
+
+    {% endblock %}
+
+{% block body_id %}test{% endblock %}
+
+{% block for_header %}
+
+{% include "sidebar.html" %}
+
+<div class="status-bar-navbar">
+        {% include 'sidebar.html' %}
+      <div class="frame">
+        <div class="navbar">
+          <button id="menu-button" class="button-left-menu">
+            <div class="icon"><div class="text-wrapper">􀌇</div></div>
+          </button>
+          <div class="div">
+            <div class="text-wrapper-2">Каталог</div>
+            <div class="text-wrapper-3">Животные и специалисты</div>
+          </div>
+          <div class="icon-wrapper"><div class="icon"></div></div>
+        </div>
+      </div>
+      <div class="frame-wrapper">
+        <div class="frame-2">
+          <div class="text-wrapper-4">􀊫</div>
+          <input class="text">
+        </div>
+      </div>
+</div>
+
+<div class="promo-banner-wrapper">
+    <div class="promo-banner-container">
+        {% for banner in banners %}
+        <div class="frame-promo-banners ">
+            <p class="text-wrapper">{{ banner.text }}</p>
+            <div class="div">{{ banner.icon }}</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="frame-categories-catalog">
+    <div class="categories-container">
+        {% for category in categories %}
+        <div class="category-item to_click" onclick="window.location.href='{{ category.url }}';">
+            <div class="div-wrapper">
+                <div class="text-wrapper">{{ category.icon }}</div>
+            </div>
+            <div class="text-wrapper-2">{{ category.name }}</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="frame-pets">
+    <div class="div">
+        <div class="text-wrapper">Животные</div>
+        <div class="button-2 to_click">
+            <div class="text-wrapper-2">Все</div>
+            <div class="icon">
+                <div class="text-wrapper-3">􀰑</div>
+            </div>
+        </div>
+    </div>
+    <div class="div-2">
+        {% for pet in pets %}
+        <div class="card to_click">
+            <div class="image">
+                <div class="text-wrapper-4">{{ pet.icon }}</div>
+            </div>
+            <div class="div-3">
+                <div class="view">
+                    <div class="view-2">
+                        <div class="text-wrapper-5">{{ pet.name }}</div>
+                        <div class="text-wrapper-6">{{ pet.price }}₽</div>
+                    </div>
+<div class="like-button" onclick="toggleLike(this, event)">
+  <span>􀊵️️️</span>
+</div>
+                </div>
+                <div class="view-3">
+                    <div class="text">{{ pet.gender }}</div>
+                    <div class="rectangle"></div>
+                    <div class="text">{{ pet.breed }}</div>
+                    <div class="rectangle"></div>
+                    <div class="text-2">{{ pet.age }}</div>
+                    <div class="rectangle"></div>
+                    <div class="text-2">{{ pet.birthday }} ({{ pet.zodiac }})</div>
+                    <div class="rectangle"></div>
+                    <div class="text-2">{{ pet.color }}</div>
+                    <div class="rectangle"></div>
+                    <div class="text-2">{{ pet.eyes }}</div>
+                </div>
+                <div class="div-4">
+                    <div class="text-wrapper-8">{{ pet.location }}</div>
+                    <div class="text-wrapper-9">{{ pet.date }}</div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        <!-- "See All" button at the end -->
+        <div class="div-5" onclick="window.location.href='/all-pets/'">
+            <div class="div-wrapper">
+                <div class="text-wrapper-10">􀰑</div>
+            </div>
+            <div class="text-wrapper-11">Все животные</div>
+        </div>
+    </div>
+</div>
+
+<div class="frame-specialists frame-pets">
+  <div class="div">
+    <div class="text-wrapper">Специалисты</div>
+    <div class="button-2 to_click">
+      <div class="text-wrapper-2">Все</div>
+      <div class="icon">
+        <div class="text-wrapper-3">􀰑</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="div-2">
+    {% for specialist in specialists %}
+    <div class="card to_click">
+      <div class="image">
+        <div class="text-wrapper-4">{{ specialist.icon }}</div>
+      </div>
+      <div class="div-3">
+        <div class="view">
+          <div class="view-2">
+            <div class="text-wrapper-5">{{ specialist.name }}</div>
+            <div class="text-wrapper-6">{{ specialist.price }}₽</div>
+          </div>
+
+<div class="like-button" onclick="toggleLike(this, event)">
+  <span>􀊵️️️</span>
+</div>
+        </div>
+        <div class="view-3">
+          <div class="text">{{ specialist.gender }}</div>
+          <div class="rectangle"></div>
+          <div class="text">{{ specialist.specialty }}</div>
+          <div class="rectangle"></div>
+          <div class="text-2">{{ specialist.experience }} лет опыта</div>
+          <div class="rectangle"></div>
+          <div class="text-2">{{ specialist.birthday }} ({{ specialist.zodiac }})</div>
+          <div class="rectangle"></div>
+          <div class="text-2">{{ specialist.color }}</div>
+          <div class="rectangle"></div>
+          <div class="text-2">{{ specialist.eyes }}</div>
+        </div>
+        <div class="div-4">
+          <div class="text-wrapper-8">{{ specialist.location }}</div>
+          <div class="text-wrapper-9">{{ specialist.date }}</div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+    <!-- "See All Specialists" button at the end -->
+    <div class="div-5" onclick="window.location.href='/all-specialists/'">
+      <div class="div-wrapper">
+        <div class="text-wrapper-10">􀰑</div>
+      </div>
+      <div class="text-wrapper-11">Все специалисты</div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+{% block content %}
+
+
+
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}
+{% block extra_script %}<script>
+
+let currentIndex = 0;
+const banners = document.querySelectorAll('.frame-promo-banners');
+const bannerContainer = document.querySelector('.promo-banner-container');
+function toggleLike(button, event) {
+      button.classList.toggle('liked');
+
+  event.stopPropagation(); // Prevents any parent event handlers from being triggered
+  event.preventDefault(); // Prevents any default action, such as form submissions or link clicks
+  return; // Ensure nothing else happens
+}
+// Function to apply the swipe scaling animation
+function showBanner(index) {
+    const bannerWidth = bannerContainer.offsetWidth;
+
+    // Shrink the current banner (old one) by removing swipe-active class
+    banners.forEach((banner, i) => {
+        if (i === index) {
+            // Grow the new banner coming into view
+            banner.classList.add('swipe-active');
+            banner.classList.remove('swipe-inactive');
+        } else {
+            // Shrink the old banner going out of view
+            banner.classList.add('swipe-inactive');
+            banner.classList.remove('swipe-active');
+        }
+    });
+
+    // Translate the container to show the active banner
+    bannerContainer.style.transform = `translateX(-${index * bannerWidth}px)`;
+}
+
+// Add touch event listeners for swiping on mobile
+let startX = 0;
+let isSwiping = false;
+
+// Handle touch start event
+bannerContainer.addEventListener('touchstart', function(e) {
+    startX = e.touches[0].clientX;
+    isSwiping = true;
+});
+
+// Handle touch move event
+bannerContainer.addEventListener('touchmove', function(e) {
+    if (!isSwiping) return;
+    const currentX = e.touches[0].clientX;
+    const deltaX = startX - currentX;
+
+    // Detect significant swipe
+    if (Math.abs(deltaX) > 50) {
+        if (deltaX > 0 && currentIndex < banners.length - 1) {
+
+            currentIndex++;
+            showBanner(currentIndex);
+        } else if (deltaX < 0 && currentIndex > 0) {
+            // Swipe right (previous banner)
+            currentIndex--;
+            showBanner(currentIndex);
+        }
+        isSwiping = false; // Stop swiping after one valid swipe
+    }
+});
+
+document.querySelectorAll('.to_click ').forEach(element => {
+    element.addEventListener('click', function(event) {
+        // Find if the click target is inside the like button
+
+        // If not clicked on like button, apply the shrink effect to the parent
+        element.classList.add('clicked');
+
+        // Remove the shrink effect after 200ms
+        setTimeout(() => element.classList.remove('clicked'), 200);
+    });
+});
+
+document.querySelector('.button-back').addEventListener('click', function() {
+    window.history.back();
+});
+// Handle touch end event
+bannerContainer.addEventListener('touchend', function() {
+    isSwiping = false;
+});
+
+</script>
+<script>
+let startY = 0; // Starting Y position for the swipe
+let startX = 0; // Starting X position for the swipe
+const threshold = 50; // Minimum distance for a significant swipe
+let isSwiping = false; // Flag to check if swiping has started
+
+document.addEventListener('touchstart', function(e) {
+    // Record the initial touch positions
+    startY = e.touches[0].clientY;
+    startX = e.touches[0].clientX;
+    isSwiping = true; // Start tracking the swipe
+}, { passive: false }); // Use passive: false to allow preventDefault
+
+document.addEventListener('touchmove', function(e) {
+    if (!isSwiping) return;
+
+    // Get the current touch positions
+    const currentY = e.touches[0].clientY;
+    const currentX = e.touches[0].clientX;
+
+    // Calculate the differences in X and Y
+    const deltaY = currentY - startY;
+    const deltaX = currentX - startX;
+
+    // Check if the swipe is more horizontal than vertical
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        // Prevent vertical scrolling, treat this as a horizontal swipe
+        e.preventDefault();
+        return;
+    }
+
+    // Check if a significant downward swipe has occurred
+    if (deltaY > threshold) {
+        // Significant swipe down detected, allow vertical scroll
+        document.body.style.overflowY = 'auto'; // Enable vertical scroll
+    } else {
+        // If swipe down is not significant, prevent scrolling
+        e.preventDefault();
+    }
+}, { passive: false }); // Again, passive: false to allow preventDefault
+
+document.addEventListener('touchend', function() {
+    isSwiping = false; // Stop tracking when the user lifts their finger
+}, { passive: false });
+</script>
+
+
+
+<script>
+// Function to add the overlay on the container but exclude the #menu div
+function addOverlayToContainer() {
+  // Select the container and apply the overlay effect
+  const container = document.querySelector('.container');
+        disableBodyScrolling(); // Disable body scrolling when the menu is open
+    document.getElementById('menu').style.left = "0%"; // Show full overlay
+  // Create a new div for the overlay
+  const overlay = document.createElement('div');
+  overlay.classList.add('container-overlay');
+
+  // Append the overlay as the first child of the container
+  container.insertBefore(overlay, container.firstChild);
+
+  // Delay to allow the element to be inserted before activating the transition
+  setTimeout(() => {
+    overlay.classList.add('active'); // Activate the transition
+  }, 100); // Small delay for smooth transition
+}
+
+// Function to remove the overlay with transition
+function removeOverlayFromContainer() {
+  const overlay = document.querySelector('.container-overlay');
+    enableBodyScrolling(); // Enable body scrolling when the menu is closed
+    document.getElementById('menu').style.left = "-100%"; // Hide the overlay
+  if (overlay) {
+    // Remove the 'active' class to start the fade-out transition
+    overlay.classList.remove('active');
+
+    // After the transition ends, remove the overlay from the DOM
+    overlay.addEventListener('transitionend', () => {
+      overlay.remove();
+    });
+  }
+}
+
+
+// Function to prevent body scrolling but allow scrolling on the menu
+function disableBodyScrolling() {
+    document.body.style.overflow = 'hidden';  // Disable scrolling on body
+    document.getElementById('menu').style.overflow = 'auto';  // Allow scrolling inside menu
+}
+
+// Function to restore body scrolling
+function enableBodyScrolling() {
+    document.body.style.overflow = 'auto';  // Enable scrolling on body again
+    document.getElementById('menu').style.overflow = 'hidden';  // Hide menu scrolling when menu is closed
+}
+
+
+// Toggle menu open
+document.getElementById('menu-button').onclick = function() {
+    addOverlayToContainer();
+};
+
+// Toggle menu close
+document.getElementById('close-menu').onclick = function() {
+    removeOverlayFromContainer();
+};
+</script>
+{% endblock %}

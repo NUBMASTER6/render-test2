@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Регистрация / Авторизация{% endblock %}
+
+{% block title_class %}custom-title-class{% endblock %}
+    {% block link %}
+    <link rel="stylesheet" href="{% static 'css/login-auth/styles.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=check" />
+
+    <link rel="stylesheet" href="{% static 'css/login-auth/globals.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login-auth/styleguide.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login-auth/login-auth-1.css' %}">
+    {% endblock %}
+
+{% block header %}Регистрация / Авторизация{% endblock %}
+
+
+{% block right_button %}
+
+{% endblock %}
+{% block content %}
+    <div class="container">
+    <div class="frame-513138 frame">
+        <div class="frame-57 frame">
+          <div class="description sfpro-medium-black-20px">Вход по номеру телефона</div>
+          <p class="description-1 sfpro-regular-normal-black-14px">
+            Введите свой номер телефона для автризации. Если вы уже зарегистрированы – будет произведен вход
+          </p>
+        </div>
+        <div class="text-field">
+          <div class="text_label-1 sfpro-medium-black-14px">Ваш номер телефона</div>
+          <div class="text-field-1">
+            <div class="icon">
+              <div class="text-3 sfpro-regular-normal-black-14px">􀌿</div>
+            </div>
+            <span class="non-deletable sfpro-regular-normal-black-14px-2">+7</span> <!-- Non-deletable +7 -->
+            <input class="titile sfpro-regular-normal-black-14px-2" type="tel" id="phone-input" placeholder="(ххх) ххх-хх-хх" maxlength="15" pattern="\d" required="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% block footer %}
+        <footer class="footer mobileBar">
+            <button class="button submit-button sfpro-medium-white-14px" id="submit-button">Продолжить</button>
+
+        </footer>
+{% endblock %}
+
+
+{% endblock %}
+{% block script %} {% static 'js/login-auth/login-auth-1.js' %} {% endblock %}

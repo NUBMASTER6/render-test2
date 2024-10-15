@@ -1,0 +1,353 @@
+.cards-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping if necessary */
+  width: 100%;
+  box-sizing: border-box; /* Ensure padding/border is included in the width */
+  overflow: hidden; /* Prevent overflowing */
+  gap: 8px;
+}
+
+.cards.card-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  position: relative;
+  padding-bottom: 10px;
+  width: 100%; /* Single card per row by default */
+  box-sizing: border-box;
+  transform: translateY(30px); /* Start slightly below */
+  transition: transform 0.6s ease, opacity 0.6s ease; /* Smooth transition */
+}
+
+/* Animation for when cards appear */
+.cards.card-list.visible {
+  opacity: 1; /* Fade in */
+  transform: translateY(0); /* Slide to normal position */
+}
+
+.two-cards-per-row .cards.card-list {
+  flex: 1 1 calc(50% - 16px); /* Take up 50% of the row width */
+
+  transform: scale(0.95); /* Start slightly scaled down */
+  transition: transform 0.6s ease, opacity 0.6s ease; /* Smooth scaling and fading */
+
+}
+
+
+
+.sfpro-medium-black-16px {
+  color: black;
+  font-family: "SF Pro", Helvetica;
+  font-size: var(--font-size-l);
+  font-style: normal;
+  font-weight: 500;
+  text-align: center;
+}
+
+.cards.card-list .image.card-list {
+  position: relative;
+  width: 100%; /* Full width of the container */
+  aspect-ratio: 1 / 1; /* Maintain a 1:1 aspect ratio (perfect square) */
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid;
+  border-color: #00000014;
+  object-fit: cover; /* Ensure image fits within the square dimensions */
+  transition: flex 0.6s ease-in-out, transform 0.6s ease-in-out;
+
+}
+
+.cards.card-list .text-wrapper.card-list {
+  position: absolute;
+  top: 156px;
+  left: 158px;
+  font-family: "SF Pro", Helvetica;
+  font-weight: 400;
+  color: #0000004c;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+  line-height: normal;
+}
+
+.cards.card-list .frame.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-self: stretch;
+  width: 100%;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.cards.card-list .div.card-list {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.cards.card-list .view.card-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+}
+
+.cards.card-list .text-wrapper-2.card-list {
+  position: relative;
+  align-self: stretch;
+  margin-top: -1px;
+  font-family: "SF Pro", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  line-height: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.cards.card-list .text-wrapper-3.card-list {
+  font-family: "SF Pro", Helvetica;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  line-height: 16px;
+  position: relative;
+  align-self: stretch;
+  font-weight: 400;
+}
+
+.like-button {
+  display: flex;
+  width: 36px;
+  height: 36px;
+  padding: 0px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 26px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #f5f5f5; /* Default background */
+  color: black; /* Default text color */
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+
+.like-button.liked {
+  background: black; /* Background turns black when liked */
+  color: white; /* Text turns white when liked */
+}
+.cards.card-list .text-wrapper-4.card-list {
+  position: relative;
+  width: fit-content;
+  margin-left: -1.5px;
+  margin-right: -1.5px;
+  font-family: "SF Pro", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.cards.card-list .navbar.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 4px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+padding: 0px 0px 0px 0px;
+  height: auto;
+}
+
+.cards.card-list .text.card-list {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "SF Pro", Helvetica;
+  font-weight: 400;
+  color: #000000b2;
+  font-size: 10px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 12px;
+  white-space: nowrap;
+}
+
+.cards.card-list .rectangle.card-list {
+  position: relative;
+  width: 2px;
+  height: 2px;
+  background-color: #00000080;
+  border-radius: 12px;
+}
+
+.cards.card-list .text-2.card-list {
+  position: relative;
+  width: fit-content;
+  font-family: "SF Pro", Helvetica;
+  font-weight: 400;
+  color: #000000b2;
+  font-size: 10px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 12px;
+  white-space: nowrap;
+}
+
+.cards.card-list .frame-2.card-list {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  width: 100%;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.cards.card-list .text-wrapper-5.card-list {
+  position: relative;
+  align-self: stretch;
+  margin-top: -1px;
+  font-family: "SF Pro", Helvetica;
+  font-weight: 400;
+  color: #00000080;
+  font-size: 12px;
+  letter-spacing: -0.5px;
+  line-height: 16px;
+}
+
+.cards.card-list .text-wrapper-6.card-list {
+  font-family: "SF Pro", Helvetica;
+  color: #00000080;
+  font-size: 10px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: relative;
+  align-self: stretch;
+  font-weight: 400;
+}
+
+.cards.card-list .frame-3.card-list {
+  display: inline-flex;
+  gap: 2px;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.cards.card-list .text-wrapper-7.card-list {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "SF Pro", Helvetica;
+  font-weight: 400;
+  color: #00000080;
+  font-size: 10px;
+  letter-spacing: 0;
+  line-height: 14px;
+  white-space: nowrap;
+}
+
+
+/* Horizontal layout: image on the left, content on the right */
+.horizontal-layout .cards.card-list {
+  display: flex;
+  flex-direction: row; /* Make it horizontal */
+  align-items: center;
+  width: 100%; /* Each card takes full width */
+  gap: 16px;
+  box-sizing: border-box; /* Ensure padding is included in the width */
+  max-width: 100%; /* Prevent card from overflowing its container */
+  overflow: hidden; /* Prevent content from flowing outside the card */
+}
+
+.horizontal-layout .image.card-list {
+  flex: 0 0 150px; /* Set the image width */
+  height: 150px; /* Set the image height */
+  object-fit: cover;
+  max-width: 150px; /* Ensure the image does not stretch beyond */
+  box-sizing: border-box;
+}
+
+
+.horizontal-layout .frame.card-list {
+  flex: 1; /* Take up the remaining space */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-sizing: border-box;
+  max-width: calc(100% - 150px - 16px); /* Adjust max-width to ensure content fits within the card */
+}
+
+.frame-mini-bar {
+  display: inline-flex;
+  height: 48px;
+  align-items: center;
+  padding: 0px 6px;
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  border-radius: 33px;
+  border: 1px solid;
+  border-color: #00000014;
+  z-index: 1000;
+}
+
+.frame-mini-bar .div-wrapper-mini-bar,
+.frame-mini-bar .div-mini-bar {
+  display: flex;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px;
+  position: relative;
+  border-radius: 68px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border 0.3s ease, color 0.3s ease;
+}
+
+/* Unselected buttons */
+.frame-mini-bar .div-wrapper-mini-bar,
+.frame-mini-bar .div-mini-bar {
+  background-color: transparent; /* Default background for unselected */
+  border: 1px solid transparent; /* No border by default */
+  color: black; /* Black text for unselected */
+}
+
+/* Selected button */
+.frame-mini-bar .div-mini-bar.selected {
+  background-color: #eaeaea; /* Grey background for selected button */
+  border: 2px solid #00000014; /* Subtle outline */
+  color: white; /* White text for selected button */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+/* Hover state for unselected buttons */
+.frame-mini-bar .div-wrapper-mini-bar:hover,
+.frame-mini-bar .div-mini-bar:not(.selected):hover {
+  background-color: #f0f0f0;
+  color: black; /* Black text on hover for unselected */
+}

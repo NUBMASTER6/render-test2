@@ -1,0 +1,219 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+/* The following line is used to measure usage of this code. You can remove it if you want. */
+@import url("https://px.animaapp.com/66f9a5b4ffe0575c4dd811ae.66f9a5b5ffe0575c4dd811b1.KeB4qDk.hcp.png");
+
+@font-face {
+  font-family: "SF Pro";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/SF-Pro.ttf") format("truetype");
+}
+@font-face {
+  font-family: "SF Pro-Semibold";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/SF-Pro.ttf") format("truetype");
+}
+@font-face {
+  font-family: "SF Pro";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/SF-Pro.ttf") format("truetype");
+}
+
+
+.screen a {
+  display: contents;
+  text-decoration: none;
+}
+
+.container-center-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  pointer-events: none;
+  width: 100%;
+}
+
+.container-center-horizontal > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.status-bar {
+  align-self: stretch;
+  height: 44px;
+  position: relative;
+  width: 100%;
+}
+
+.container {
+  height: 46px;
+  position: relative;
+  width: 375px;
+}
+
+.right-side {
+  align-items: flex-start;
+  display: flex;
+  gap: 5px;
+  height: 11px;
+  left: 294px;
+  min-width: 67px;
+  position: absolute;
+  top: 19px;
+}
+
+.mobile-signal {
+  align-self: center;
+  height: 11px;
+  margin-top: 0;
+  width: 17px;
+}
+
+.wifi {
+  height: 11px;
+  width: 15px;
+}
+
+.battery {
+  align-self: flex-end;
+  height: 11px;
+  width: 24px;
+}
+
+.navbar {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  height: 48px;
+  justify-content: space-between;
+  padding: 0px 8px;
+  position: relative;
+  width: 100%;
+}
+
+.t-button {
+  align-items: center;
+  border-radius: 34px;
+  display: flex;
+  height: 44px;
+  justify-content: center;
+  padding: 0px 4px;
+  position: relative;
+  width: 44px;
+}
+
+.icon {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 24px;
+  justify-content: center;
+  position: relative;
+  width: 24px;
+}
+
+.frame-513159 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 2px;
+  justify-content: center;
+  position: relative;
+}
+
+.frame-512888 {
+  align-self: stretch;
+  background-color: var(--cultured-pearl);
+  border: 1px solid;
+  border-color: var(--black-4);
+  border-radius: 16px;
+  height: 48px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.rectangle-31 {
+  background-color: var(--black-2);
+  border-radius: 12px;
+  height: 2px;
+  position: relative;
+  width: 2px;
+}
+
+.frame-512602 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+.frame-513075 {
+  align-items: center;
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--black-4);
+  border-radius: 33px;
+  display: inline-flex;
+  height: 48px;
+  left: 127px;
+  padding: 0px 6px;
+  position: absolute;
+  top: 630px;
+}
+
+.frame-512868 {
+  align-items: center;
+  background-color: var(--gray-nurse);
+  border-radius: 68px;
+  display: flex;
+  gap: 8px;
+  height: 36px;
+  justify-content: center;
+  padding: 8px;
+  position: relative;
+  width: 36px;
+}
+
+.text-1-1 {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  align-self: stretch;
+  display: -webkit-box;
+  height: 32px;
+  letter-spacing: -0.50px;
+  line-height: 16px;
+  margin-top: -1.00px;
+  overflow: hidden;
+  position: relative;
+  text-overflow: ellipsis;
+}
+
+.text-1-2 {
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-left: -1.50px;
+  margin-right: -1.50px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.text-1-3 {
+  align-self: stretch;
+  letter-spacing: -0.50px;
+  line-height: 16px;
+  margin-top: -1.00px;
+  position: relative;
+}
